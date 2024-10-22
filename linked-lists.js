@@ -29,7 +29,20 @@ class LinkedList {
   }
 
   size() {
+    if (this.value) {
+      let sz = 1;
+      let next = this;
 
+      while (next.nextNode) {
+        next = next.nextNode;
+        sz++;
+      };
+
+      return sz;
+
+    } else {
+      return 0;
+    }
   }
 
   head() {
@@ -89,6 +102,4 @@ class LinkedList {
   }
 
 }
-
-
 
