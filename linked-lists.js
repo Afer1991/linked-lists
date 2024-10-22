@@ -10,7 +10,6 @@ class LinkedList {
   append(val) {
     if (this.value === undefined) {
       const node = new Node(val);
-      console.log(this);
       this.value = node.value;
       this.nextNode = node.nextNode;
     } else  {
@@ -34,7 +33,11 @@ class LinkedList {
   }
 
   head() {
-
+    if(this.value) {
+      return this.value;
+    } else {
+      console.log("List is empty");
+    }
   }
 
   tail() {
@@ -61,4 +64,5 @@ class LinkedList {
 
   }
 
-  }
+}
+
