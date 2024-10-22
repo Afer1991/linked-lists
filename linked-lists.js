@@ -6,12 +6,23 @@ class Node {
 }
 
 class LinkedList {
-  constructor() {
-      
-  }
 
-  append(value) {
+  append(val) {
+    if (this.value === undefined) {
+      const node = new Node(val);
+      console.log(this);
+      this.value = node.value;
+      this.nextNode = node.nextNode;
+    } else  {
+      const node = new Node(val);
+      let last = this;
       
+      while (last.nextNode) {
+        last = last.nextNode;
+      };
+      
+      last.nextNode = node;
+    };
   }
 
   prepend(value) {
