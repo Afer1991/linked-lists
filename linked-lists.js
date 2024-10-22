@@ -41,7 +41,17 @@ class LinkedList {
   }
 
   tail() {
+    if (this.value) {
+      let last = this;
+      
+      while (last.nextNode) {
+        last = last.nextNode;
+      };
 
+      return last.value;
+    } else {
+      console.log("List is empty");
+    }
   }
 
   at(index) {
@@ -79,4 +89,6 @@ class LinkedList {
   }
 
 }
+
+
 
