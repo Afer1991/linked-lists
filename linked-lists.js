@@ -61,7 +61,21 @@ class LinkedList {
   }
 
   toString() {
+    if (this.value) {
+      let str = `( ${this.value} ) -> `;
+      let next = this;
 
+      while (next.nextNode) {
+        str += `( ${next.nextNode.value} ) -> `;
+        next = next.nextNode;
+      }
+
+      str += "null";
+
+      return str;
+    } else {
+      return "null";
+    }
   }
 
 }
