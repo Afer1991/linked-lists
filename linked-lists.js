@@ -58,7 +58,7 @@ class LinkedList {
       return this.hd;
     } else {
       console.log("List is empty");
-    }
+    };
   }
 
   tail() {
@@ -66,11 +66,29 @@ class LinkedList {
       return this.tl;
     } else {
       console.log("List is empty");
-    }
+    };
   }
 
   at(index) {
+    if (this.hd && index >= 0) {
+            
+      let nd = this.hd;
 
+      for (let i = 0; i < index; i++) {
+        nd = nd.nextNode;
+      };
+      
+      if(!nd) {
+        console.log("Node doesn't exist")
+      } else {
+        return nd;
+      };
+
+    } else if (index < 0) {
+      console.log("Index must be equal or greater than 0");
+    } else {
+      console.log("List is empty");
+    };
   }
 
   pop() {
@@ -93,7 +111,7 @@ class LinkedList {
       while (next.nextNode) {
         str += `( ${next.nextNode.value} ) -> `;
         next = next.nextNode;
-      }
+      };
 
       str += "null";
 
@@ -104,3 +122,4 @@ class LinkedList {
   }
 
 }
+
