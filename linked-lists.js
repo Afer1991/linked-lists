@@ -6,32 +6,40 @@ class Node {
 }
 
 class LinkedList {
-
-  append(val) {
-    if (this.value === undefined) {
-      const node = new Node(val);
-      this.value = node.value;
-      this.nextNode = node.nextNode;
-    } else  {
-      const node = new Node(val);
-      let last = this;
-      
-      while (last.nextNode) {
-        last = last.nextNode;
-      };
-      
-      last.nextNode = node;
-    };
+  constructor() {
+    this.hd = null;
+    this.tl = null;
   }
 
-  prepend(value) {
+  append(val) {
+    const node = new Node(val);
+
+    if (!this.hd) {
+      this.hd = node;
+    } else {
+      this.tl.nextNode = node;
+    };
+
+    this.tl = node;
+  }
+
+  prepend(val) {
+    const node = new Node(val);
+
+    if (!this.hd) {
+      this.tl = node;
+    } else {  
+      node.nextNode = this.hd;
+    };
+
+    this.hd = node;
 
   }
 
   size() {
-    if (this.value) {
+    if (this.hd) {
       let sz = 1;
-      let next = this;
+      let next = this.hd;
 
       while (next.nextNode) {
         next = next.nextNode;
@@ -46,22 +54,16 @@ class LinkedList {
   }
 
   head() {
-    if(this.value) {
-      return this.value;
+    if(this.hd) {
+      return this.hd;
     } else {
       console.log("List is empty");
     }
   }
 
   tail() {
-    if (this.value) {
-      let last = this;
-      
-      while (last.nextNode) {
-        last = last.nextNode;
-      };
-
-      return last.value;
+    if (this.tl) {
+      return this.tl;
     } else {
       console.log("List is empty");
     }
@@ -84,9 +86,9 @@ class LinkedList {
   }
 
   toString() {
-    if (this.value) {
-      let str = `( ${this.value} ) -> `;
-      let next = this;
+    if (this.hd) {
+      let str = `( ${this.hd.value} ) -> `;
+      let next = this.hd;
 
       while (next.nextNode) {
         str += `( ${next.nextNode.value} ) -> `;
@@ -102,4 +104,3 @@ class LinkedList {
   }
 
 }
-
