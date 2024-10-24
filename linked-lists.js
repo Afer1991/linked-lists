@@ -95,8 +95,18 @@ class LinkedList {
 
   }
 
-  contains(value) {
+  contains(val) {
+    let curr = this.hd;
 
+    while (curr) {
+      if (curr.value === val) {
+        return true;
+      } else {
+        curr = curr.nextNode;
+      };
+    };
+
+    return false;
   }
 
   find(value) {
@@ -122,4 +132,5 @@ class LinkedList {
   }
 
 }
+
 
