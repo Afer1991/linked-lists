@@ -109,8 +109,29 @@ class LinkedList {
     return false;
   }
 
-  find(value) {
+  find(val) {
+    
+    let curr = this.hd;
+    
+    if (curr) {
 
+      let index = 0;
+
+      while (curr) {
+        if (curr.value === val) {
+          return index;
+        };
+        
+        index ++;
+        curr = curr.nextNode;
+
+      };
+
+      return null;
+
+    } else {
+      return null;
+    };
   }
 
   toString() {
@@ -132,5 +153,6 @@ class LinkedList {
   }
 
 }
+
 
 
