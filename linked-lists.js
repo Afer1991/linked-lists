@@ -92,7 +92,26 @@ class LinkedList {
   }
 
   pop() {
+    if (this.hd === this.tl) {
+      this.hd = null;
+      this.tl = null;
+    } else if (this.hd) {
+      let sz = 1;
+      let next = this.hd;
+      let secondLast = this.hd;
 
+      while (next.nextNode) {
+        next = next.nextNode;
+        sz++;
+      };
+
+      for (let i = 0; i < sz - 2; i++) {
+        secondLast = secondLast.nextNode;
+      };
+
+      secondLast.nextNode = null;
+      this.tl = secondLast;
+    };
   }
 
   contains(val) {
