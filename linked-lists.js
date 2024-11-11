@@ -171,7 +171,25 @@ class LinkedList {
     }
   }
 
+  removeAt(index) {
+    if (index < 0 || index >= this.size()) {
+      return "Node doesn't exist";
+    } else if (this.size() === 1 || index === this.size() - 1) {
+      this.pop();
+      return;
+    } else {
+
+      let node = this.hd;
+
+      for (let i = 0; i < index; i++) {
+        node = node.nextNode;
+      };
+
+      node.value = node.nextNode.value;
+      node.nextNode = node.nextNode.nextNode;
+      return;
+    }
+  }
+
 }
-
-
 
